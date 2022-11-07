@@ -1,0 +1,25 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:v="sap.ui.comp.valuehelpdialog" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:t="sap.ui.ux3.ToolPopup">
+	<Dialog title="Select Currency ">
+			<Button text="Kapat" press="closeC"></Button>
+		<Table id="t3" width="100%" mode="SingleSelectMaster" selectionChange="selected" items="{MainModel>/sh}">
+			<columns>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+					<Text text="Döviz Kodu "/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+					<Text text="Para Birimi"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<ObjectIdentifier text="{MainModel>Waers}"/>
+						<Text text="{MainModel>Ltext}"></Text>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	
+	</Dialog>
+</c:FragmentDefinition>

@@ -1,0 +1,69 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="PersonelP.PersonelP.controller.Sorgulama"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout">
+	<App>
+		<pages>
+			<Page title="Personel Arama" enableScrolling="true">
+				<l:FixFlex class="fixFlexVertical">
+					<l:fixContent>
+						<l:Grid >
+							<l:content>
+								<Label class="sapUiMediumMarginEnd" text="Şirket Kodu:">
+									<layoutData>
+										<l:GridData span="L1 M3 S8" linebreakL="false" linebreakM="true" linebreakS="true"/>
+									</layoutData>
+								</Label>
+								<Input ></Input>
+								<Label class="sapUiMediumMarginEnd" text="Personel No:">
+									<layoutData>
+										<l:GridData span="L1 M1 S1" linebreakL="false" linebreakM="false" linebreakS="false"/>
+									</layoutData>
+								</Label>
+								<Input class="sapUiSmallMarginEnd" placeholder="Personel No:" value="{MainModel>/value}" showValueHelp="true" valueHelpOnly="true"
+									valueHelpRequest="handleValueHelp"></Input>
+								<Label class="sapUiMediumMarginEnd" text="Başlangıç :">
+									<layoutData>
+										<l:GridData span="L1 M4 S8" linebreakL="false" linebreakM="true" linebreakS="true"/>
+									</layoutData>
+								</Label>
+								<DatePicker class="sapUiSmallMarginBottom" id="DP1" placeholder="Enter Date" change="handleChange"></DatePicker>
+							</l:content>
+							<l:content>
+								<l:VerticalLayout class="sapUiContentPadding">
+									<Button text="Ara" type="Emphasized" icon="sap-icon://employee-lookup" press="searchEmployee">
+										<layoutData>
+											<l:GridData span="L3 M3 S8" linebreakL="true" linebreakM="true" linebreakS="true"/>
+										</layoutData>
+									</Button>
+								</l:VerticalLayout>
+							</l:content>
+						</l:Grid>
+					</l:fixContent>
+					<l:flexContent>
+						<Table id="idProductsTable" items="{MainModel>/persons}">
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="Personel Numarası"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+									<Text text="İsim "/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+									<Text text="Soyisim"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{MainModel>Pernr}"></Text>
+										<Text text="{MainModel>Vorna}"></Text>
+										<Text text="{MainModel>Nachn}"></Text>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</l:flexContent>
+				</l:FixFlex>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

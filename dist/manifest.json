@@ -1,0 +1,188 @@
+{
+    "_version": "1.9.0",
+    "sap.app": {
+        "id": "PersonelP.PersonelP",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZD_ENTI2_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "sourceTemplate": {
+            "id": "sap.ui.ui5-template-plugin.1worklist",
+            "version": "1.52.7"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "sap-icon://task",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "PersonelP.PersonelP.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.42.0",
+            "libs": {
+                "sap.collaboration": {
+                    "minVersion": ""
+                },
+                "sap.f": {},
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {
+                    "minVersion": ""
+                }
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "PersonelP.PersonelP.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true
+            },
+            "MainModel": {
+                "type": "sap.ui.model.json.JSONModel",
+                "settings": {},
+                "uri": "",
+                "preload": false
+            },
+            "service": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "settings": {
+                    "defaultOperationMode": "Server",
+                    "defaultBindingMode": "OneTime",
+                    "defaultCountMode": "Request"
+                },
+                "dataSource": "mainService",
+                "preload": true
+            }
+        },
+        "services": {
+            "ShellUIService": {
+                "factoryName": "sap.ushell.ui5service.ShellUIService",
+                "lazy": false,
+                "settings": {
+                    "setTitle": "auto"
+                }
+            }
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "PersonelP.PersonelP.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "bypassed": {
+                    "target": [
+                        "notFound"
+                    ]
+                },
+                "async": true
+            },
+            "routes": [
+                {
+                    "pattern": "",
+                    "name": "Sorgulama",
+                    "target": [
+                        "Sorgulama"
+                    ],
+                    "greedy": false
+                },
+                {
+                    "pattern": "ListSet/{objectId}",
+                    "name": "",
+                    "target": [
+                        "object"
+                    ]
+                },
+                {
+                    "name": "PersonelIzin",
+                    "pattern": "",
+                    "titleTarget": "",
+                    "greedy": true,
+                    "target": [
+                        "PersonelIzin"
+                    ]
+                }
+            ],
+            "targets": {
+                "worklist": {
+                    "viewName": "Sorgulama",
+                    "viewId": "worklist",
+                    "viewLevel": 1,
+                    "title": ""
+                },
+                "object": {
+                    "viewName": "Object",
+                    "viewId": "object",
+                    "viewLevel": 2,
+                    "title": "{i18n>objectViewTitle}"
+                },
+                "objectNotFound": {
+                    "viewName": "ObjectNotFound",
+                    "viewId": "objectNotFound"
+                },
+                "notFound": {
+                    "viewName": "NotFound",
+                    "viewId": "notFound"
+                },
+                "Sorgulama": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "Sorgulama",
+                    "title": "Personel Sorgulama",
+                    "viewLevel": 1
+                },
+                "PersonelIzin": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearAggregation": true,
+                    "viewName": "PersonelIzin",
+                    "viewLevel": 1
+                }
+            }
+        }
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/zpersonel",
+        "_version": "1.1.0"
+    }
+}

@@ -1,0 +1,166 @@
+{
+  "run": [
+    {
+      "filePath": "/PersonelP/webapp/test/flpSandbox.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "hashParameter": "PersonelP-display",
+      "ui5ActiveVersion": "snapshot",
+      "ui5VerSource": null,
+      "isDefaultVersion": 1,
+      "_metadata": {
+        "id": "3532988",
+        "runnerId": "webapprunner",
+        "displayName": "App in FLP Sandbox",
+        "lastRunTimeStamp": 1650982326872
+      }
+    },
+    {
+      "filePath": "/PersonelP/webapp/test/flpSandboxMockServer.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "hashParameter": "PersonelP-display",
+      "ui5ActiveVersion": "snapshot",
+      "ui5VerSource": null,
+      "isDefaultVersion": 1,
+      "_metadata": {
+        "id": "1594972",
+        "runnerId": "webapprunner",
+        "displayName": "App in FLP Sandbox (Mock Server)"
+      }
+    },
+    {
+      "filePath": "/PersonelP/webapp/test/unit/unitTests.qunit.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": "snapshot",
+      "ui5VerSource": null,
+      "isDefaultVersion": 1,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "_metadata": {
+        "id": "9516246",
+        "runnerId": "webapprunner",
+        "displayName": "Unit Tests"
+      }
+    },
+    {
+      "filePath": "/PersonelP/webapp/test/integration/opaTests.qunit.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": "snapshot",
+      "ui5VerSource": null,
+      "isDefaultVersion": 1,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "hashParameter": "",
+      "_metadata": {
+        "id": "354768",
+        "runnerId": "webapprunner",
+        "displayName": "OPA Tests"
+      }
+    },
+    {
+      "filePath": "/PersonelP/webapp/test/testsuite.qunit.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": "snapshot",
+      "ui5VerSource": null,
+      "isDefaultVersion": 1,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "hashParameter": "",
+      "_metadata": {
+        "id": "9853910",
+        "runnerId": "webapprunner",
+        "displayName": "Test Suite (Unit, OPA)"
+      }
+    },
+    {
+      "filePath": "/PersonelP/webapp/Component.js",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": "snapshot",
+      "ui5VerSource": null,
+      "isDefaultVersion": 1,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        },
+        {
+          "paramName": "",
+          "paramValue": "",
+          "paramActive": false
+        }
+      ],
+      "hashParameter": "",
+      "_metadata": {
+        "id": "2699009",
+        "runnerId": "fiorirunner",
+        "displayName": "App as Fiori Component"
+      }
+    }
+  ]
+}

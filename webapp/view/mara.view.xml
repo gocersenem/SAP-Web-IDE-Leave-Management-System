@@ -1,0 +1,62 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="PersonelP.PersonelP.controller.mara"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout">
+	<App>
+		<pages>
+			<Page title="Mara Table">
+				<content>
+					<l:Grid class="sapUiMediumMarginTop sapUiTinyMarginBottom" defaultSpan="L12" defaultIndent="XL1">
+						<Label text="Malzeme (MATNR):" width="10em"></Label>
+						<Input class="sapUiSmallMarginEnd" id="idMatnrInput" width="20em" placeholder="Malzeme (MATNR):" value="{MainModel>/valueNR}"
+							showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onProducts"></Input>
+						<Label text="Malzeme (MATKL):" width="10em"></Label>
+						<Input class="sapUiSmallMarginEnd" width="20em" placeholder="Malzeme (MATKL):" showValueHelp="true" valueHelpOnly="true"
+							valueHelpRequest="onProducts" value="{MainModel>/valueKL}"></Input>
+						<Button text="Arama" press="searchProduct"></Button>
+					</l:Grid>
+					<l:Grid class="sapUiMediumMarginTop sapUiTinyMarginBottom" defaultSpan="L12" defaultIndent="XL1">
+						<Label text="Waers:" width="10em"></Label>
+						<Input class="sapUiSmallMarginEnd" width="20em" placeholder="Waers:" value="{MainModel>/valueWE}" showValueHelp="true" valueHelpOnly="true"
+							valueHelpRequest="search"></Input>
+							
+					</l:Grid>
+					<Table id="t1" width="100%" items="{MainModel>/material}">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Text text="Malzeme"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+								<Text text="Malzema Tanımı"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier text="{MainModel>Matnr}"/>
+									<Text text="{MainModel>Matkl}"></Text>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+						<Table id="t4" visible="false" width="100%" items="{MainModel>/currensh}">
+						<columns>
+							<Column >
+								<Text text="Döviz Kodu"/>
+							</Column>
+							<Column >
+								<Text text="Para Birimi"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier text="{MainModel>Waers}"/>
+									<Text text="{MainModel>Ltext}"></Text>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

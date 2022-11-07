@@ -1,0 +1,32 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:v="sap.ui.comp.valuehelpdialog" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:t="sap.ui.ux3.ToolPopup">
+	<Dialog title="Select Material Number">
+		<Input class="sapUiSmallMarginEnd" width="20em" placeholder="Malzeme (MATNR):" value="{MainModel>/valueNR}"></Input>
+		<Input class="sapUiSmallMarginEnd" width="20em" placeholder="Malzeme (MATKL):" value="{MainModel>/valueKL}"></Input>
+		<Table id="t2" width="100%" mode="SingleSelectMaster" selectionChange="selectedMate" items="{MainModel>/materialsh}">
+			<headerToolbar>
+				<OverflowToolbar id="otbSubheader">
+					<ToolbarSpacer/>
+					<Button text="Arama" press="searchProduct"></Button>
+					<Button text="Kapat" press="close"></Button>
+				</OverflowToolbar>
+			</headerToolbar>
+			<columns>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+					<Text text="Malzeme"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+					<Text text="Malzema Tanımı"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<ObjectIdentifier text="{MainModel>Matnr}"/>
+						<Text text="{MainModel>Matkl}"></Text>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</Dialog>
+</c:FragmentDefinition>

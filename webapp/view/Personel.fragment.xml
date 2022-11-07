@@ -1,0 +1,30 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>	<TableSelectDialog
+		noDataText="No Products Found"
+		title="Select Employee"
+		search=".handleSearch"
+		confirm=".handleValueHelpClose"
+		cancel=".handleValueHelpClose"
+
+		items="{MainModel>/pernos}">
+		<ColumnListItem selected="{selected}">
+			<cells>
+				<ObjectIdentifier title="{MainModel>no}"  />
+			
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+				<header>
+					<Text text="Personel No" />
+				</header>
+			</Column>
+	
+		</columns>
+		
+	
+	</TableSelectDialog>
+
+</c:FragmentDefinition>

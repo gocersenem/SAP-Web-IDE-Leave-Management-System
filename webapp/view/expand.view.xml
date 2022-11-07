@@ -1,0 +1,16 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="PersonelP.PersonelP.controller.expand"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Title">
+			<List >
+   <items>
+    <CustomListItem>
+
+     </CustomListItem>
+    </items>
+   </List>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

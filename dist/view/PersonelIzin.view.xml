@@ -1,0 +1,150 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="PersonelP.PersonelP.controller.PersonelIzin"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" height="100%" widht="100%">
+	<App>
+		<pages>
+			<Page showHeader="true" enableScrolling="false" title="İzin Talebi">
+				<subHeader >
+					<Toolbar height="5em">
+						<l:VerticalLayout>
+							<ObjectStatus class="sapUiSmallMarginBottom" text="Yıllık İzin Bilgisi" state="Warning"/>
+							<Label design="Bold" text="İşe Giriş Tarihi"></Label>
+							<Label design="Bold" class="sapUi-Std-PaddingS" text="Kalan Yıllık İzin"></Label>
+						</l:VerticalLayout>
+					</Toolbar>
+				</subHeader>
+				<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+					<l:FixFlex minFlexSize="400">
+						<l:fixContent stretchContentHeight="true">
+							<l:Grid class="sapUiMediumMarginTop sapUiTinyMarginBottom" defaultSpan="L12" defaultIndent="XL1">
+								<Panel>
+									<ObjectStatus class="sapUiMediumMarginTop sapUiMediumMarginBottom" text="İzin Talebi" state="Success">
+										<layoutData>
+											<l:GridData span="L1 M3 S8" linebreakL="true" linebreakM="true" linebreakS="true"/>
+										</layoutData>
+									</ObjectStatus>
+									<l:Grid defaultSpan="L5">
+										<Label class="sapUiMediumMarginEnd" width="10em" text="İzin Sebebi">
+											<layoutData>
+												<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+											</layoutData>
+										</Label>
+										<Select width="30em" id="Permissions">
+											<core:Item id="default" key="0" text="Saatlik Ücretsiz İzin"/>
+											<core:Item key="1" text="Mazeret İzni"/>
+											<core:Item key="2" text="Yıllık İzin"/>
+											<core:Item key="3" text="Okul İzni"/>
+										</Select>
+									</l:Grid >
+									<l:Grid defaultSpan="L6">
+										<Label class="sapUiMediumMarginEnd" width="15em" text="İzin Başlangıç Tarihi">
+											<layoutData>
+												<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+											</layoutData>
+										</Label>
+										<DatePicker width="30em" class="sapUiMediumMarginEnd" id="DP1" value="{MainModel>/sDate}" dateValue="{MainModel>/startdate}"></DatePicker>
+									</l:Grid >
+									<l:Grid defaultSpan="L6">
+										<Label class="sapUiMediumMarginEnd" width="10em" text="İzin Başlangıç Saati">
+											<layoutData>
+												<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+											</layoutData>
+										</Label>
+										<TimePicker width="10em" id="TP1" value="{MainModel>/timePickers/TP1/value}" valueFormat="{MainModel>/timePickers/TP1/format}"
+											displayFormat="{MainModel>/timePickers/TP1/format}" change="handleChange" placeholder="{MainModel>/timePickers/TP1/placeholder}" />
+									</l:Grid >
+									<l:Grid defaultSpan="L6">
+										<Label class="sapUiMediumMarginEnd" width="10em" text="İzin Bitiş Tarihi">
+											<layoutData >
+												<l:GridData span="L2 M3 S8" linebreakL="true" linebreakM="true" linebreakS="true"/>
+											</layoutData>
+										</Label>
+										<DatePicker width="30em" class="sapUiSmallMarginBottom" id="DP2" value="{MainModel>/eDate}" dateValue="{MainModel>/enddate}"></DatePicker>
+									</l:Grid >
+									<l:Grid defaultSpan="L6">
+										<Label class="sapUiMediumMarginEnd" width="10em" text="İzin Bitiş Saati">
+											<layoutData>
+												<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+											</layoutData>
+										</Label>
+										<TimePicker width="10em" id="TP2" value="{MainModel>/timePickers/TP2/value}" valueFormat="{MainModel>/timePickers/TP2/format}"
+											displayFormat="{MainModel>/timePickers/TP2/format}" change="handleChange" placeholder="{MainModel>/timePickers/TP2/placeholder}"/>
+									</l:Grid >
+									<l:Grid defaultSpan="L6">
+										<Label class="sapUiMediumMarginEnd" width="10em" text="İznin Kullanılacağı Yer">
+											<layoutData>
+												<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+											</layoutData>
+										</Label>
+										<TextArea value="{MainModel>/place}" width="30em"/>
+									</l:Grid >
+									<l:Grid defaultSpan="L6">
+										<Label class="sapUiMediumMarginEnd" width="10em" text="Açıklama">
+											<layoutData>
+												<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+											</layoutData>
+										</Label>
+										<TextArea value="{MainModel>/description}" width="30em"></TextArea>
+									</l:Grid >
+									<FlexBox width="55%" alignItems="Start" justifyContent="End">
+										<Button class="sapUiSmallMarginEnd" text="Talep et" icon="sap-icon://add" press="addPermission"></Button>
+										<Button text="Temizle" icon="sap-icon://sys-cancel" press="clearPermission"></Button>
+									</FlexBox>
+								</Panel>
+							</l:Grid>
+						</l:fixContent>
+						<l:flexContent>
+							<l:Grid defaultSpan="L12" defaultIndent="XL1">
+								<Table id="t1" items="{MainModel>/permission}" selectionChange="selected">
+									<headerToolbar>
+										<OverflowToolbar id="otbSubheader">
+								
+											<ToolbarSpacer/>
+											<Button id="editButton" text="Edit" icon="sap-icon://edit" type="Transparent" press="onEdit"/>
+											<Button id="saveButton" text="Save" type="Transparent" press="onSave" icon="sap-icon://save" visible="false"/>
+										</OverflowToolbar>
+									</headerToolbar>
+									<columns>
+										<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+											<Text text="İzin Sebebi"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+											<Text text="İznin Günleri "/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+											<Text text="İznin Kullanılacağı Yer"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+											<Text text="Açıklama"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+											<Text text="İzin Durumu"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+											<Text text="Onay Durumu"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+											<Text text="Onay"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<ObjectIdentifier text="{MainModel>permis}"/>
+												<Text text="{MainModel>sDate} {MainModel>sTime} - {MainModel>eDate} {MainModel>eTime}"></Text>
+												<Text text="{MainModel>place}"></Text>
+												<Text text="{MainModel>description}"></Text>
+												<Text text="{parts: [{path: 'MainModel>status' },{path: 'MainModel>/index'}], formatter: '.formatter.textFormat' }"></Text>
+												<ObjectStatus text="01" icon="sap-icon://error" state="Warning"/>
+												<Button text="Onayla" press="confirmPermission"></Button>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</l:Grid>
+						</l:flexContent>
+					</l:FixFlex>
+				</ScrollContainer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

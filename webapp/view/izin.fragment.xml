@@ -1,0 +1,55 @@
+<c:FragmentDefinition xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Dialog title="İzin Düzenleme">
+		<l:VerticalLayout >
+			<Label class="sapUiMediumMarginEnd" width="10em" text="İzin Sebebi">
+				<layoutData>
+					<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+				</layoutData>
+			</Label>
+			<Select width="30em" id="Permissions">
+				<c:Item id="default" key="0" text="Saatlik Ücretsiz İzin"/>
+				<c:Item key="1" text="Mazeret İzni"/>
+				<c:Item key="2" text="Yıllık İzin"/>
+				<c:Item key="3" text="Okul İzni"/>
+			</Select>
+			<Label class="sapUiMediumMarginEnd" width="15em" text="İzin Başlangıç Tarihi">
+				<layoutData>
+					<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+				</layoutData>
+			</Label>
+			<DatePicker width="30em" class="sapUiMediumMarginEnd" id="DP1" value="{MainModel>/inputP>sDate}" dateValue="{MainModel>/inputP>sDate}"></DatePicker>
+			<Label class="sapUiMediumMarginEnd" width="10em" text="İzin Başlangıç Saati">
+				<layoutData>
+					<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+				</layoutData>
+			</Label>
+			<TimePicker width="10em" id="TP1" value="{MainModel>/inputP>sTime}" valueFormat="{MainModel>/timePickers/TP1/format}"
+				displayFormat="{MainModel>/timePickers/TP1/format}" change="handleChange" placeholder="{MainModel>/inputP>sTime}"/>
+			<Label class="sapUiMediumMarginEnd" width="40em" text="İzin Bitiş Tarihi"></Label>
+			<DatePicker width="30em" class="sapUiSmallMarginBottom" id="DP2" value="{MainModel>/Per>eDate}" dateValue="{MainModel>/inputP>eDate}"></DatePicker>
+			<Label class="sapUiMediumMarginEnd" width="10em" text="İzin Bitiş Saati">
+				<layoutData>
+					<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+				</layoutData>
+			</Label>
+			<TimePicker width="10em" id="TP2" value="{MainModel>/timePickers/TP2/format}" valueFormat="{MainModel>/timePickers/TP2/format}"
+				displayFormat="{MainModel>/timePickers/TP2/format}" change="handleChange" placeholder="{MainModel>/inputP>eTime}"/>
+			<Label class="sapUiMediumMarginEnd" width="40em" text="İznin Kullanılacağı Yer">
+				<layoutData>
+					<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+				</layoutData>
+			</Label>
+			<TextArea value="{MainModel>/inputP>place}" width="30em"/>
+			<Label class="sapUiMediumMarginEnd" width="10em" text="Açıklama">
+				<layoutData>
+					<l:GridData span="L2 M3 S8" linebreakL="false" linebreakM="false" linebreakS="false"/>
+				</layoutData>
+			</Label>
+			<TextArea value="{MainModel>inputP>description}" width="30em"></TextArea>
+			<FlexBox width="55%" alignItems="Start" justifyContent="End">
+				<Button class="sapUiSmallMarginEnd" text="Kaydet ve Çık" icon="sap-icon://add" press="addClosePermission"></Button>
+				<Button text="Kapat" icon="sap-icon://sys-cancel" press="close"></Button>
+			</FlexBox>
+		</l:VerticalLayout>
+	</Dialog>
+</c:FragmentDefinition>
